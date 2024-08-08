@@ -1,0 +1,4 @@
+name: Supernatural
+version: 0.1
+main: io.github.winnpixie.supernatural.SupernaturalPlugin
+api-version: 1.21
