@@ -1,6 +1,6 @@
-package io.github.winnpixie.supernatural.abilities.impl;
+package io.github.winnpixie.wpabilities.abilities.impl;
 
-import io.github.winnpixie.supernatural.abilities.Ability;
+import io.github.winnpixie.wpabilities.abilities.Ability;
 import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -12,7 +12,7 @@ public class SpeedsterAbility extends Ability {
 
     @Override
     public void activate(Player player) {
-        player.setWalkSpeed(0.69f);
+        player.setWalkSpeed(0.47f);
     }
 
     @Override

@@ -1,11 +1,11 @@
-package io.github.winnpixie.supernatural;
+package io.github.winnpixie.wpabilities;
 
-import io.github.winnpixie.supernatural.listeners.ConnectionListener;
-import io.github.winnpixie.supernatural.listeners.PlayerActionListener;
+import io.github.winnpixie.wpabilities.listeners.ConnectionListener;
+import io.github.winnpixie.wpabilities.listeners.PlayerActionListener;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class SupernaturalPlugin extends JavaPlugin {
+public class WPAbilitiesPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new ConnectionListener(this), this);

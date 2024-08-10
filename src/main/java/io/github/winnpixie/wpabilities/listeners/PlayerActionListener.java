@@ -1,9 +1,9 @@
-package io.github.winnpixie.supernatural.listeners;
+package io.github.winnpixie.wpabilities.listeners;
 
-import io.github.winnpixie.supernatural.PlayerData;
-import io.github.winnpixie.supernatural.SupernaturalPlugin;
-import io.github.winnpixie.supernatural.abilities.impl.HollowPurpleAbility;
-import io.github.winnpixie.supernatural.abilities.impl.OculaserAbility;
+import io.github.winnpixie.wpabilities.PlayerData;
+import io.github.winnpixie.wpabilities.WPAbilitiesPlugin;
+import io.github.winnpixie.wpabilities.abilities.impl.HollowPurpleAbility;
+import io.github.winnpixie.wpabilities.abilities.impl.OculaserAbility;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,9 +14,9 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
 public class PlayerActionListener implements Listener {
-    private final SupernaturalPlugin plugin;
+    private final WPAbilitiesPlugin plugin;
 
-    public PlayerActionListener(SupernaturalPlugin plugin) {
+    public PlayerActionListener(WPAbilitiesPlugin plugin) {
         this.plugin = plugin;
     }
 

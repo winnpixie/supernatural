@@ -1,8 +1,8 @@
-package io.github.winnpixie.supernatural.abilities;
+package io.github.winnpixie.wpabilities.abilities;
 
 import org.bukkit.entity.Player;
 
-public abstract class Ability {
+public class Ability {
     private final int effectLength;
     private final int cooldownLength;
 
@@ -55,6 +55,7 @@ public abstract class Ability {
             activate(player);
         } else {
             finish(player);
+            setRemainingCooldown(getCooldownLength());
         }
     }
 
@@ -65,8 +66,9 @@ public abstract class Ability {
     public void activate(Player player) {
     }
 
-    public abstract void tick(Player player);
-
     public void finish(Player player) {
+    }
+
+    public void tick(Player player) {
     }
 }

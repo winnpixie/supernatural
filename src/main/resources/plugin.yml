@@ -1,4 +1,4 @@
-name: Supernatural
+name: WPAbilities
 version: 0.1-DEVEL
-main: io.github.winnpixie.supernatural.SupernaturalPlugin
+main: io.github.winnpixie.wpabilities.WPAbilitiesPlugin
 api-version: 1.21

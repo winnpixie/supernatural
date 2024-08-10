@@ -1,4 +1,4 @@
-package io.github.winnpixie.supernatural.abilities;
+package io.github.winnpixie.wpabilities.abilities;
 
 import org.bukkit.entity.Player;
 
@@ -30,18 +30,15 @@ public class AbilityManager {
     }
 
     public void tick(Player player) {
-        for (Ability ability : abilities) {
+        abilities.forEach(ability -> {
             if (ability.isActive()) {
                 ability.tick(player);
 
                 ability.setTicksActive(Math.min(ability.getTicksActive() + 1, ability.getEffectLength()));
-                if (ability.getTicksActive() >= ability.getEffectLength()) {
-                    ability.setRemainingCooldown(ability.getCooldownLength());
-                    ability.toggle(player);
-                }
+                if (ability.getTicksActive() >= ability.getEffectLength()) ability.toggle(player);
             } else if (ability.getRemainingCooldown() > 0) {
                 ability.setRemainingCooldown(Math.max(ability.getRemainingCooldown() - 1, 0));
             }
-        }
+        });
     }
 }

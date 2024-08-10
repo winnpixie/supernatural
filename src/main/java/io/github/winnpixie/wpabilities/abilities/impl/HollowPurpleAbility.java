@@ -1,11 +1,14 @@
-package io.github.winnpixie.supernatural.abilities.impl;
+package io.github.winnpixie.wpabilities.abilities.impl;
 
-import io.github.winnpixie.supernatural.abilities.Ability;
+import io.github.winnpixie.wpabilities.abilities.Ability;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.damage.DamageSource;
 import org.bukkit.damage.DamageType;
-import org.bukkit.entity.*;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Mob;
+import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 public class HollowPurpleAbility extends Ability {
@@ -16,7 +19,7 @@ public class HollowPurpleAbility extends Ability {
     private int age;
 
     public HollowPurpleAbility() {
-        super(20, 5 * 20);
+        super(1 * 20, 5 * 20);
     }
 
     @Override
@@ -31,20 +34,25 @@ public class HollowPurpleAbility extends Ability {
     }
 
     @Override
+    public void finish(Player player) {
+        if (stand != null) stand.remove();
+    }
+
+    @Override
     public void tick(Player player) {
         World world = stand.getWorld();
 
-        for (Entity entity : world.getNearbyEntities(stand.getBoundingBox().expand(2.5))) {
-            if (entity == stand) continue;
-            if (entity == player) continue;
-            if (!(entity instanceof Mob mob)) continue;
+        world.getNearbyEntities(stand.getBoundingBox().expand(2.5)).forEach(entity -> {
+            if (entity == stand) return;
+            if (entity == player) return;
+            if (!(entity instanceof Mob victim)) return;
 
-            mob.damage(mob.getHealth(),
+            victim.damage(victim.getHealth(),
                     DamageSource.builder(DamageType.MAGIC)
                             .withDirectEntity(stand)
                             .withCausingEntity(player)
                             .build());
-        }
+        });
 
         if (age > 10) {
             for (int x = -3; x <= 3; x++) {
@@ -67,10 +75,5 @@ public class HollowPurpleAbility extends Ability {
         world.spawnParticle(Particle.DUST, stand.getLocation(), 20, 1.5, 1.5, 1.5, new Particle.DustOptions(Color.FUCHSIA, 2));
         stand.teleport(stand.getLocation().add(moveVec.copy(lookVec).multiply(0.5)));
         age++;
-    }
-
-    @Override
-    public void finish(Player player) {
-        if (stand != null) stand.remove();
     }
 }
