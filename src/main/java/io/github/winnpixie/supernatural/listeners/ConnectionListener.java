@@ -2,6 +2,7 @@ package io.github.winnpixie.supernatural.listeners;
 
 import io.github.winnpixie.supernatural.PlayerData;
 import io.github.winnpixie.supernatural.SupernaturalPlugin;
+import io.github.winnpixie.supernatural.abilities.impl.HollowPurpleAbility;
 import io.github.winnpixie.supernatural.abilities.impl.OculaserAbility;
 import io.github.winnpixie.supernatural.abilities.impl.SpeedsterAbility;
 import org.bukkit.event.EventHandler;
@@ -20,6 +21,7 @@ public class ConnectionListener implements Listener {
     private void onPlayerJoin(PlayerJoinEvent event) {
         PlayerData data = PlayerData.getData(event.getPlayer());
         data.abilityManager.grant(new OculaserAbility());
+        data.abilityManager.grant(new HollowPurpleAbility());
         data.abilityManager.grant(new SpeedsterAbility()).toggle(event.getPlayer());
     }
 

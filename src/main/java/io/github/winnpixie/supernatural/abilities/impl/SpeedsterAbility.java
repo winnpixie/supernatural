@@ -23,12 +23,13 @@ public class SpeedsterAbility extends Ability {
     @Override
     public void tick(Player player) {
         setTicksActive(0);
+        if (!player.isOnGround()) return;
 
-        player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 5, 0.1, 0.25, 0.1,
+        player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 5, 0.1, 0.2, 0.1,
                 new Particle.DustOptions(Color.YELLOW, 1f));
-        player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 5, 0.1, 0.25, 0.1,
+        player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 5, 0.1, 0.2, 0.1,
                 new Particle.DustOptions(Color.WHITE, 1f));
-        player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 5, 0.1, 0.25, 0.1,
+        player.getWorld().spawnParticle(Particle.DUST, player.getLocation(), 5, 0.1, 0.2, 0.1,
                 new Particle.DustOptions(Color.ORANGE, 1f));
     }
 }
